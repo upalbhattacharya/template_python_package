@@ -29,7 +29,7 @@
             rev = "v${version}";
             hash = "sha256-GUsoKAZYlyEcl1iZZJEE1qABbyDaylbCS193FyKUnFw=";
           };
-          propagatedBuildInputs = [ setuptools ];
+          propagatedBuildInputs = [ pkgs.python3Packages.setuptools ];
         };
 
         # LSP, formatting, etc.
