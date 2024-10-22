@@ -1,6 +1,6 @@
 [project]
 name = "template_python_package"
-description = "Template python package using nix-direnv and setuptools"
+description = "Template Python Package and development environment for Upal Bhattacharya relying on direnv (using nix flakes) and setuptools (NOT Poetry or poetry2nix)"
 version = "0.1.0"
 authors = [
 		{ name = "Upal Bhattacharya", email = "upal.bhattacharya@gmail.com" }
