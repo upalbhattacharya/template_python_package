@@ -30,8 +30,11 @@
             hash = "sha256-GUsoKAZYlyEcl1iZZJEE1qABbyDaylbCS193FyKUnFw=";
           };
           build-system = [
-            buildPythonPackages
-            pkgs.cmake
+          python.withPackages (
+            ps: with ps; [
+              setuptools
+            ]
+          )
           ];
         };
 
