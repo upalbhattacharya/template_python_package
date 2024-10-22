@@ -15,27 +15,9 @@
       let
         pkgs = nixpkgs.legacyPackages.${system};
         python = pkgs.python312;
+        pythonPackages = pkgs.python312Packages;
 
         # Defining all relevant packages
-
-        # Non nix-packaged modules grom GitHub
-        ontospy = pkgs.python3Packages.buildPythonPackage rec {
-          pname = "ontospy";
-          version = "2.1.1";
-          pyproject = true;
-          src = pkgs.fetchFromGitHub {
-            owner = "lambdamusic";
-            repo = "Ontospy";
-            rev = "v${version}";
-            hash = "sha256-GUsoKAZYlyEcl1iZZJEE1qABbyDaylbCS193FyKUnFw=";
-          };
-          build-system = [
-            pkgs.python3Packages.setuptools
-            pkgs.python3Packages.pyyaml
-            pkgs.kodiPackages.typing_extensions
-            pkgs.cmake
-          ];
-        };
 
         # LSP, formatting, etc.
         devPythonPackages = (
@@ -98,7 +80,6 @@
             devPackages
             devPythonPackages
             modulePythonPackages
-            ontospy
             myapp
           ];
         };
