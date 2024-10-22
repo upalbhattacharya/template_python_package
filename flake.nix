@@ -16,23 +16,6 @@
         pkgs = nixpkgs.legacyPackages.${system};
         python = pkgs.python312;
 
-        # The main module
-        myapp = pkgs.python3Packages.buildPythonPackage rec {
-          # Change name here
-          pname = "template_python_package";
-          pyproject = true;
-          version = "0.1.0";
-          src = ./.;
-          build-system = [
-            (python.withPackages (
-              ps: with ps; [
-                # build system
-                setuptools
-              ]
-            ))
-          ];
-        };
-
         # Python development packages used for development
         # LSP, formatting, etc.
         devPythonPackages = (
@@ -46,8 +29,16 @@
           )
         );
 
+        buildPythonPackages = (
+          python.withPackages (
+            ps: with ps; [
+              setuptools
+            ]
+          )
+        );
+
         # Python modules for actual package
-        packagePythonPackages = (
+        modulePythonPackages = (
           python.withPackages (
             ps:
             with ps;
@@ -64,6 +55,20 @@
             nixfmt-rfc-style
           ]
         );
+
+        # The main module
+        myapp = pkgs.python3Packages.buildPythonPackage {
+          # Change name here
+          pname = "template_python_package";
+          pyproject = true;
+          version = "0.1.0";
+          src = ./.;
+          build-system = [
+            buildPythonPackages
+            modulePythonPackages
+          ];
+        };
+
       in
       {
         devShells.default = pkgs.mkShell {
