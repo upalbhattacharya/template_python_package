@@ -19,13 +19,13 @@
         # Defining all relevant packages
 
         # Non nix-packaged modules grom GitHub
-        torch = pkgs.python3Packages.buildPythonPackage rec {
-          pname = "pytorch";
-          version = "2.5.0";
+        ontospy = pkgs.python3Packages.buildPythonPackage rec {
+          pname = "ontospy";
+          version = "2.1.1";
           pyproject = true;
           src = pkgs.fetchFromGitHub {
-            owner = "pytorch";
-            repo = "pytorch";
+            owner = "lambdamusic";
+            repo = "Ontospy";
             rev = "v${version}";
             hash = "sha256-GUsoKAZYlyEcl1iZZJEE1qABbyDaylbCS193FyKUnFw=";
           };
