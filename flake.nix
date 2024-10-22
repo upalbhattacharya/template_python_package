@@ -18,14 +18,16 @@
 
         # Defining all relevant packages
 
-        # Non nix-packaged modules grom Pypi
+        # Non nix-packaged modules grom GitHub
         torch = pkgs.python3Packages.buildPythonPackage rec {
-          pname = "torch";
+          pname = "pytorch";
+          version = "2.5.0";
           pyproject = true;
-          version = "v2.5.0";
-          src = pkgs.fetchPypi {
-            inherit pname version;
-            sha256 = "";
+          src = pkgs.fetchFromGitHub {
+            owner = "pytorch";
+            repo = "pytorch";
+            rev = "v${version}";
+            hash = "sha256-GUsoKAZYlyEcl1iZZJEE1qABbyDaylbCS193FyKUnFw=";
           };
         };
 
