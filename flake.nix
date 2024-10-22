@@ -76,7 +76,7 @@
             pkgs.bashInteractive
             devPackages
             devPythonPackages
-            packagePythonPackages
+            modulePythonPackages
             myapp
           ];
         };
