@@ -16,6 +16,19 @@
         pkgs = nixpkgs.legacyPackages.${system};
         python = pkgs.python312;
 
+        # Defining all relevant packages
+
+        # Non nix-packaged modules grom Pypi
+        ontospy = pkgs.python3Packages.buildPythonPackage {
+          pname = "ontospy";
+          pyproject = true;
+          version = "v2.1.1";
+          src = fetyPypi {
+            inherit pname version;
+            sha256 = "";
+          }
+        };
+
         # LSP, formatting, etc.
         devPythonPackages = (
           python.withPackages (
@@ -56,16 +69,6 @@
           ]
         );
 
-        # Non nix-packaged modules grom Pypi
-        gmodule = pkgs.python3Packages.buildPythonPackage {
-          pname = "gmodule";
-          pyproject = true;
-          version = "x.x.x";
-          src = fetyPypi {
-            inherit pname version;
-            sha256 = "";
-          }
-        };
 
         # The main module
         myapp = pkgs.python3Packages.buildPythonPackage {
