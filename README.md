@@ -1,3 +1,3 @@
-# Term Typing Ontology Enrichment Experiment 1
+# Template Python Package
 
-Initial experiment for Term Typing Ontology Enrichment.
+Template python package architecture that builds using `nix-direnv` and `setuptools`
