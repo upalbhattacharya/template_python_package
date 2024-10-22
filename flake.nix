@@ -32,7 +32,7 @@
           build-system = [
             pkgs.python3Packages.setuptools
             pkgs.python3Packages.pyyaml
-            pkgs.python3Packages.typing_extensions
+            pkgs.kodiPackages.typing_extensions
             pkgs.cmake
           ];
         };
