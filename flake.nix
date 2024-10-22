@@ -16,7 +16,6 @@
         pkgs = nixpkgs.legacyPackages.${system};
         python = pkgs.python312;
 
-        # Python development packages used for development
         # LSP, formatting, etc.
         devPythonPackages = (
           python.withPackages (
@@ -29,6 +28,7 @@
           )
         );
 
+        # Build packages
         buildPythonPackages = (
           python.withPackages (
             ps: with ps; [
