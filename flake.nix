@@ -95,7 +95,7 @@
             devPackages
             devPythonPackages
             modulePythonPackages
-            torch
+            ontospy
             myapp
           ];
         };
