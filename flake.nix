@@ -29,13 +29,6 @@
             rev = "v${version}";
             hash = "sha256-GUsoKAZYlyEcl1iZZJEE1qABbyDaylbCS193FyKUnFw=";
           };
-          build-system = [
-          python.withPackages (
-            ps: with ps; [
-              setuptools
-            ]
-          )
-          ];
         };
 
         # LSP, formatting, etc.
