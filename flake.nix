@@ -23,10 +23,10 @@
           pname = "ontospy";
           pyproject = true;
           version = "v2.1.1";
-          src = fetyPypi {
+          src = pkgs.fetchPypi {
             inherit pname version;
             sha256 = "";
-          }
+          };
         };
 
         # LSP, formatting, etc.
@@ -68,7 +68,6 @@
             nixfmt-rfc-style
           ]
         );
-
 
         # The main module
         myapp = pkgs.python3Packages.buildPythonPackage {
