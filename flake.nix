@@ -29,8 +29,10 @@
             rev = "v${version}";
             hash = "sha256-GUsoKAZYlyEcl1iZZJEE1qABbyDaylbCS193FyKUnFw=";
           };
-          propagatedBuildInputs = [ pkgs.python3Packages.setuptools
-                                  pkgs.cmake];
+          build-system = [
+            pkgs.python3Packages.setuptools
+            pkgs.cmake
+          ]
         };
 
         # LSP, formatting, etc.
