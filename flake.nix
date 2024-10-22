@@ -32,7 +32,7 @@
           build-system = [
             pkgs.python3Packages.setuptools
             pkgs.cmake
-          ]
+          ];
         };
 
         # LSP, formatting, etc.
