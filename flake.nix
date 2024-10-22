@@ -19,10 +19,10 @@
         # Defining all relevant packages
 
         # Non nix-packaged modules grom Pypi
-        ontospy = pkgs.python3Packages.buildPythonPackage {
-          pname = "ontospy";
+        torch = pkgs.python3Packages.buildPythonPackage rec {
+          pname = "torch";
           pyproject = true;
-          version = "v2.1.1";
+          version = "v2.5.0";
           src = pkgs.fetchPypi {
             inherit pname version;
             sha256 = "";
@@ -90,8 +90,8 @@
             devPackages
             devPythonPackages
             modulePythonPackages
+            torch
             myapp
-            ontospy
           ];
         };
       }
