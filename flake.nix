@@ -31,6 +31,7 @@
           };
           build-system = [
             buildPythonPackages
+            pkgs.cmake
           ];
         };
 
