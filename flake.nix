@@ -56,6 +56,17 @@
           ]
         );
 
+        # Non nix-packaged modules grom Pypi
+        gmodule = pkgs.python3Packages.buildPythonPackage {
+          pname = "gmodule";
+          pyproject = true;
+          version = "x.x.x";
+          src = fetyPypi {
+            inherit pname version;
+            sha256 = "";
+          }
+        };
+
         # The main module
         myapp = pkgs.python3Packages.buildPythonPackage {
           # Change name here
