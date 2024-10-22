@@ -29,6 +29,7 @@
             rev = "v${version}";
             hash = "sha256-GUsoKAZYlyEcl1iZZJEE1qABbyDaylbCS193FyKUnFw=";
           };
+          propagatedBuildInputs = [ setuptools ];
         };
 
         # LSP, formatting, etc.
